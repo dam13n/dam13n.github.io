@@ -1,12 +1,21 @@
 ---
 layout:     post
-title:      "The dreams of yesterday are the hopes of today and the reality of tomorrow."
-date:       2014-07-01 12:00:00
-author:     "Start Bootstrap"
-header-img: "img/post-bg-02.jpg"
+title:      "Making a Steel Flower for the Mom"
+date:       2015-5-19 12:00:00
+author:     "Damien Sutevski"
+header-img: "img/post-bg-06.jpg"
+published:  false
+comments:   true
 ---
 
-<p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
+I was inspired by this Reddit post earlier this year and made a copper flower for my girlfriend. It turned out really well even though as a first try. I had since made another as a wedding gift and decided to make a steel version for my mom.
+
+Steel is less malleable, but some plated steel sheets I found at a local hardware shop were really thin and seemed bendy enough. Steel's also cheaper than copper and alumnimum, and I could go for that all silver-color look. Read through this post before you choose steel though.
+
+-- some images of previous versions --
+
+
+
 
 <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.</p>
 

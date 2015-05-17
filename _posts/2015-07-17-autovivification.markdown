@@ -4,9 +4,12 @@ title:      "'initializing' hashes in ruby - autovivification"
 subtitle:   "Counting, sums, and nested hashes right off the bat"
 date:       2015-5-17 12:00:00
 author:     "Damien Sutevski"
-header-img: "img/post-bg-01.jpg"
+header-img: "img/autovivification.jpg"
 comments:   true
+published:  true
 ---
+
+TL;DR: ```hash = Hash.new { |h, k| h[k] = 0 }```
 
 I've often needed to count or sum over a set of data. Daily sales, weekly user sign ups, and in my most recent project, montly work units per employee. Here's an example of summing number of orders per day:
 
