@@ -4,6 +4,7 @@ title:      "Science has not yet mastered prophecy"
 subtitle:   "We predict too much for the next year and yet far too little for the next ten."
 date:       2014-08-24 12:00:00
 author:     "Start Bootstrap"
+comments:   true
 header-img: "img/post-bg-04.jpg"
 ---
 
@@ -30,6 +31,20 @@ header-img: "img/post-bg-04.jpg"
 <h2 class="section-heading">Reaching for the Stars</h2>
 
 <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.</p>
+
+```ruby
+if blah
+  puts 'something'
+end
+```
+
+{% highlight ruby %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
+
+
 
 <a href="#">
     <img src="{{ site.baseurl }}/img/post-sample-image.jpg" alt="Post Sample Image">

@@ -1,13 +1,14 @@
 # Site settings
-title: Clean Blog
+title: Damien's blog
 header-img: img/home-bg.jpg
-email: your-email@yourdomain.com
-description: "Write your site description here. It will be used as your sites meta description as well!"
-baseurl: "/startbootstrap-clean-blog-jekyll"
-url: "http://yourdomain.com"
-twitter_username: SBootstrap
-github_username:  davidtmiller
-facebook_username:  IronSummitMedia
+email: dameyawn@gmail.com
+description: "And the art of under-engineering"
+baseurl: ""
+url: "http://damien.la"
+twitter_username: dam13n
+github_username:  dam13n
+facebook_username:  damienster
+disqus_shortname: dam13n
 
 # Build settings
 markdown: kramdown
