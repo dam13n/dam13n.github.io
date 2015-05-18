@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Using Comman Separation on the Other Side"
+title:      "0.00,1 - Using Comman Separation on the Other Side"
 subtitle:   "We should use commas to easily read values smaller than 1."
 date:       2007-12-10 16:00:00
 author:     "Damien Sutevski"
