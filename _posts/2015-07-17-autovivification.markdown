@@ -45,7 +45,7 @@ This is called [autovivification](http://en.wikipedia.org/wiki/Autovivification)
 hash = {}
 
 orders.each do |o|
-  hash[o.date][o.state] += 1
+  hash[o.date][:state] = o.state
 end
 {% endhighlight %}
 
