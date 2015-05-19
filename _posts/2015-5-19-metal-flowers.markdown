@@ -1,51 +1,78 @@
 ---
 layout:     post
 title:      "Making a Steel Flower for the Mom"
+subtitle:   Or rose.
 date:       2015-5-19 12:00:00
 author:     "Damien Sutevski"
-header-img: "img/post-bg-06.jpg"
-published:  false
+header-img: "img/flower/silver-wide.png"
+published:  true
 comments:   true
 ---
 
-I was inspired by this Reddit post earlier this year and made a copper flower for my girlfriend. It turned out really well even though as a first try. I had since made another as a wedding gift and decided to make a steel version for my mom.
+I was inspired by [this Reddit post earlier this year](http://www.reddit.com/r/DIY/comments/2ozwb8/copper_flowers_just_in_time_for_the_holidays/) and made a copper flower for my girlfriend. It turned out really well even though as a first try. I had since made another as a wedding gift and decided to make a steel version for my mom.
 
 Steel is less malleable, but some plated steel sheets I found at a local hardware shop were really thin and seemed bendy enough. Steel's also cheaper than copper and alumnimum, and I could go for that all silver-color look. Read through this post before you choose steel though.
 
--- some images of previous versions --
-
-
-
-
-<p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.</p>
-
-<p>What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.</p>
-
-<p>A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors rather than her violators. That's how I felt seeing the Earth for the first time. I could not help but love and cherish her.</p>
-
-<p>For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the experience most certainly changes your perspective. The things that we share in our world are far more valuable than those which divide us.</p>
-
-<h2 class="section-heading">The Final Frontier</h2>
-
-<p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
-
-<p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
-
-<blockquote>The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
-
-<p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development.</p>
-
-<h2 class="section-heading">Reaching for the Stars</h2>
-
-<p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.</p>
+<h2 class="section-heading">Final Product</h2>
 
 <a href="#">
-    <img src="{{ site.baseurl }}/img/post-sample-image.jpg" alt="Post Sample Image">
+    <img src="{{ site.baseurl }}/img/flower/speaker.jpg" alt="Post Sample Image">
 </a>
-<span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
 
-<p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p>
+It turned out pretty well I think!
 
-<p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
+<h2 class="section-heading">Materials and Equipment Needed</h2>
 
-<p>Placeholder text by <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+There's a few different ways to go about creating these, but you can do it with minimal tools! The only electric tools you need are a drill and a Dremel, which is optional, but really helps.
+
+Here's some of the stuff:
+
+<a href="#">
+    <img src="{{ site.baseurl }}/img/flower/supplies.jpg" alt="Post Sample Image">
+</a>
+
+<h2 class="section-heading">Procedure</h2>
+
+Three 3"x3" squares. Cut those using those metal plate shears you see. Those happen to be "right-handed" I think. In hindsight, I'm thinking the straight-cut ones would have worked better. If you're at a hardware store, there labeled and generally visually show a curved path left or right or a straight path to indicate the type of cut they do. Either way, the ones I got worked well enough. The "plated steel" was the **thinnest** I could find. Thinner is better.
+
+There are also some bolts and "loaded washers" (or something like that) that I believe are size #10. Not pictured are some steel rods of the same size that will be used as a stem.
+
+Since I'd done this before, it made sense to use a template to trace out the flower stencil to speed things up. Just tried to cut out a circle in cardboard and eyeball 5 even petals. Then I traced out the stencil with a dry-erase marker on each square.
+
+<a href="#">
+    <img src="{{ site.baseurl }}/img/flower/template.jpg" alt="Post Sample Image">
+</a>
+
+Cut those squares into flower shapes with shears. Then use the Dremel to round off the petals' edges and remove sharp edges. I suppose this could be skipped if you shear them well and don't mind if there are sharp areas. Sorry, no pictures of this.
+
+Before shaping the petals, drill a hole in the middle of each one. Match the size of your rods.
+
+Now "shape" these stenciled-out petals! I just just needle nose plyers for this - they work great. I don't know if there's a way to describe this easily. Look at the final flower though, and let that guide you. You'll want to bend the edges of the petals downard, but bend the whole petals upwards. Whichever set of petals will be at the top should be bent almost upright. For these, curve them inwards as well as the inside of a flower looks. This is where the issue with using steel came up. Shaping the petals edges was fine, but when I tried to curve the inner most petals, I accidnetally made distinct bends that showed. When I used copper, it was easy to curve them uniformly. When the flower was all put together, I think it looks fine, but copper did contour better, and I suspect aluminum would too.
+
+Now place a bolt and washer on the end of a rod. Give enough space for the three sets of petals and another screw. A little extra room doesn't hurt - it'll be mostly hidden. Cap with another washer and bolt. The first time I did it I didn't use these, and the bolts would slip. The washers really help.
+
+Anyway, get those tight. Now continue shaping the petals until it looks like a flower! It doesn't take much.
+
+I also added a leaf, but I don't have any pics and can give some insight into making those later if anyone wants. Ended up soddering this somewhat since the steel was difficult to "wrap", unlike the copper one I made originally.
+
+<h2 class="section-heading">Finished</h2>
+
+Let me know how it goes, and I'm happy to answer any questions. Here are some more pics:
+
+<a href="#">
+    <img src="{{ site.baseurl }}/img/flower/some-angle.jpg" alt="Post Sample Image">
+</a>
+
+<a href="#">
+    <img src="{{ site.baseurl }}/img/flower/uppy.jpg" alt="Post Sample Image">
+</a>
+
+<h2 class="section-heading">Some pictures of the copper version</h2>
+
+<a href="#">
+    <img src="{{ site.baseurl }}/img/flower/older/copper1.jpg" alt="Post Sample Image">
+</a>
+
+<a href="#">
+    <img src="{{ site.baseurl }}/img/flower/older/copper2.jpg" alt="Post Sample Image">
+</a>
