@@ -72,6 +72,7 @@ Let me know how it goes, and I'm happy to answer any questions. Here are some mo
 <a href="#">
     <img src="{{ site.baseurl }}/img/flower/older/copper1.jpg" alt="Post Sample Image">
 </a>
+<span class="caption text-muted">So coooool</span>
 
 <a href="#">
     <img src="{{ site.baseurl }}/img/flower/older/copper2.jpg" alt="Post Sample Image">
