@@ -3,7 +3,7 @@ layout:     post
 title:      "Sending images with your Ruby / Rails API - Receive them in RubyMotion"
 subtitle:   "Base64 encoding to translating images to binaries and back."
 date:       2015-05-24 12:00:00
-author:     "Start Bootstrap"
+author:     "Damien Sutevski"
 comments:   true
 header-img: "img/post-bg-04.jpg"
 published:  true
