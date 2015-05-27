@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "0.00,1 - Using Comman Separation on the Other Side"
-subtitle:   "We should use commas to easily read values smaller than 1. That's it. This is not a good blog post. Don't click it."
+subtitle:   "We should use commas to easily read values smaller than 1. That's it. This is not a good blog post."
 date:       2007-12-10 16:00:00
 author:     "Damien Sutevski"
 header-img: "img/numbers.jpg"

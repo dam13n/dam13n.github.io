@@ -11,7 +11,7 @@ published:  true
 
 TL;DR: ```hash = Hash.new { |h, k| h[k] = 0 }```
 
-I've often needed to count or sum over a set of data. Daily sales, weekly user sign ups, and in my most recent project, montly work units per employee. Here's an example of summing number of orders per day:
+I've often needed to count or sum over a set of data. Daily sales, weekly user sign ups, and in my most recent project, monthly work units per employee. Here's an example of summing number of orders per day:
 
 {% highlight ruby %}
 hash = {}
