@@ -1,0 +1,86 @@
+---
+layout:     post
+title:      "Ruby 2.3.0 Highlights"
+subtitle:   "Newest version of Ruby due on Christmas"
+date:       2015-12-2 12:00:00
+author:     "Damien Sutevski"
+header-img: "img/ruby.png"
+comments:   true
+published:  true
+---
+
+I've been watching some great RubyConf talks recently, and Matz (creator of Ruby) is always fun to watch. He went over some new features in Ruby 2.3.0, so I thought I'd re-report them here for everyone. [This is the talk I got them from](https://www.youtube.com/watch?v=LE0g2TUsJ4U).
+
+## Enumerable#grep_v
+
+`grep` is a Unix command for pattern matching. For example, if I wanted to check my history for a recent ssh IP address, I could try something like:
+{% highlight ruby %}
+history |grep ssh
+{% endhighlight %}
+
+So `grep -v` is the inverse - you'll get all the results that *don't* match. I am imagining it is used like so:
+{% highlight ruby %}
+["a@gmail.com", "b@gmail.com", "c@hotmail.com"].grep_v /.+gmail.+/ 
+#=> ["c@hotmail.com"]
+{% endhighlight %}
+
+## Hash#fetch_values
+
+Stricter version of Hash#values_at. Check out the [feature request here](https://bugs.ruby-lang.org/issues/10017).
+
+## Numeric#positive? Numeric#negative?
+
+Longer than `> 0` !
+
+## Hash comparisons: `<=, <, >=, >`
+
+This seems odd, but it `A >= B` is another way of asking if hash A contain all of B and possibly more.
+
+## Hash#to_proc
+
+Here's an example straight from the talk:
+{% highlight ruby %}
+h = { 1: 2, 2: 4, 3: 6 }
+(1..3).map(&h)
+#=> [2, 4, 6]
+{% endhighlight %}
+
+## Did-you-mean
+
+Just a ruby interpreter helper for typos on methods. Doesn't seem very useful to me.
+
+## Frozen string crap
+
+Strings will be frozen by default I think. This frees up space or something. Feels inconvenient, so I hope the gains are worth it!
+
+## Safe navigation with `&.`
+
+Look, it's a guy sitting on the floor staring at a dot! The 'lonely operator'! This one is really useful:
+{% highlight ruby %}
+# instead of this to avoid pesky nils
+u = User.find("Matz")
+u && u.name && u.name.first
+
+# you can do this now
+u&.name&.first
+{% endhighlight %}
+
+Beautiful.
+
+## Array, Hash#dig
+This is also another very useful feature in Ruby 2.3. It's unsafe to check arrays or hashes at depth for values if you aren't sure they'll be there, because you'll get an error once a nil comes up. Now, there's a safe `dig` method available, and it's not unsimilar to the aforementioned `&.`:
+
+{% highlight ruby %}
+# instead of this risky query
+data[:users][0][:name]
+
+# now we can
+data.dig(:users, 0, :name)
+{% endhighlight %}
+
+Another really common need, at least for me, is the opposite of this `dig` which I'm calling `bury`. I actually tweeted to [@Matz](https://twitter.com/yukihiro_matz) about this feature request and posted to the [Ruby lang redmine forum thing](https://bugs.ruby-lang.org/issues/11747). `bury` allows you to insert an object at an arbitrary depth into an array or hash:
+{% highlight ruby %}
+data.bury(:users, 0, :name, 'Matz') # This is not part of Ruby!!
+{% endhighlight %}
+
+My feature request actually got a few comments!
