@@ -6,7 +6,7 @@ date:       2015-6-23 12:00:00
 author:     "Damien Sutevski"
 header-img: "img/autovivification.jpg"
 comments:   true
-published:  true
+published:  false
 ---
 
 The recent announcement from SpaceX about hosting a *Hyperloop* competition got me thinking about the concept again. I read Elon Musk's white paper when it was released and some engineering challenges came to mind. I perused through it this week, and here are some things that seem problematic:
