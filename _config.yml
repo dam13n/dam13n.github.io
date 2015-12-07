@@ -4,7 +4,7 @@ header-img: img/city.gif
 email: dameyawn@gmail.com
 description: "And the art of under-engineering"
 baseurl: ""
-url: "http://www.damien.la"
+url: "http://damien.la"
 twitter_username: dam13n
 github_username:  dam13n
 facebook_username:  damienster
@@ -18,4 +18,4 @@ permalink: "/:year/:month/:day/:title"
 paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
-exclude_pages: [ "Contact"]
+exclude_pages: [ "Contact", "Publications"]
