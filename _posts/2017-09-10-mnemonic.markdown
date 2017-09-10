@@ -277,7 +277,7 @@ So I run that, and an out pops the matching passphrase:
 => "fiscal bomb mutual one alley mistake unfair they roof unveil month prepare logic yard daring adapt eyebrow turn burst mandate win report maximum giraffe"
 {% endhighlight %}
 
-That's our example passphrase from the beginning, but what changed? <b>Not "proof"...it should be "roof"</b> !! I didn't want to create my own wallet to check or invade privacy or anything, so I sent off the fix to the coin owner to try it out himself. SUCCESS. He got all his coins back and looks like he moved them.
+That's our example passphrase from the beginning, but what changed? <b>Not "proof"...it should be "roof"</b> !! I didn't want to create my own wallet to check or invade privacy or anything, so I sent off the fix to the coin owner to try it out himself. SUCCESS. He got all his coins back -- $10,000 worth -- and looks like he moved them to a new wallet.
 
 # In Conclusion
 
