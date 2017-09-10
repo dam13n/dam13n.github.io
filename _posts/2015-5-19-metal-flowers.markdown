@@ -16,7 +16,7 @@ Steel is less malleable, but some plated steel sheets I found at a local hardwar
 <h2 class="section-heading">Final Product</h2>
 
 <a href="#">
-    <img src="{{ site.baseurl }}/img/flower/speaker.jpg" alt="Post Sample Image">
+    <img src="{{ site.baseurl }}/img/flower/speaker.jpg" alt="metal flower">
 </a>
 
 It turned out pretty well I think!
@@ -28,7 +28,7 @@ There's a few different ways to go about creating these, but you can do it with 
 Here's some of the stuff:
 
 <a href="#">
-    <img src="{{ site.baseurl }}/img/flower/supplies.jpg" alt="Post Sample Image">
+    <img src="{{ site.baseurl }}/img/flower/supplies.jpg" alt="metal flower supplies">
 </a>
 
 Three 3"x3" squares. Cut those beforehand using those metal plate shears you see. Those happen to be "right-handed" I think. In hindsight, I'm thinking the straight-cut ones would have worked better. If you're at a hardware store, they're labeled and generally visually show a curved path left or right or a straight path to indicate the type of cut they do. Either way, the ones I got worked well enough. The "plated steel" was the **thinnest** I could find. Thinner is better.
@@ -40,7 +40,7 @@ There are also some bolts and "loaded washers" (or something like that) that I b
 Since I'd done this before, it made sense to use a template to trace out the flower stencil to speed things up. Just tried to cut out a circle in cardboard and eyeball 5 even petals. Then I traced out the stencil with a dry-erase marker on each square.
 
 <a href="#">
-    <img src="{{ site.baseurl }}/img/flower/template.jpg" alt="Post Sample Image">
+    <img src="{{ site.baseurl }}/img/flower/template.jpg" alt="metal flower template">
 </a>
 
 Cut those squares into flower shapes with shears. Then use the Dremel to round off the petals' edges and remove sharp edges. I suppose this could be skipped if you shear them well and don't mind if there are sharp areas. Sorry, no pictures of this.
@@ -70,10 +70,10 @@ Let me know how it goes, and I'm happy to answer any questions. Here are some mo
 <h2 class="section-heading">Some pictures of the copper version</h2>
 
 <a href="#">
-    <img src="{{ site.baseurl }}/img/flower/older/copper1.jpg" alt="Post Sample Image">
+    <img src="{{ site.baseurl }}/img/flower/older/copper1.jpg" alt="copper flower">
 </a>
 <span class="caption text-muted">So coooool</span>
 
 <a href="#">
-    <img src="{{ site.baseurl }}/img/flower/older/copper2.jpg" alt="Post Sample Image">
+    <img src="{{ site.baseurl }}/img/flower/older/copper2.jpg" alt="copper flower">
 </a>
