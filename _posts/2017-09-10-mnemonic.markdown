@@ -2,7 +2,7 @@
 layout:     post
 title:      "Mnemonic Not Working - Recovering Lost Cryptocurrencies"
 subtitle:   "How to recover an HD Wallet with Bitcoins, Etherium, Litecoin, Dash, etc."
-date:       2017-09-09 12:00:00
+date:       2017-09-10 12:00:00
 author:     "Damien Sutevski"
 header-img: "img/mnemonic/crypto-bg.png"
 comments:   true
@@ -74,7 +74,7 @@ passphrase = %w(fiscal bomb mutual ... )
 
 # generate test passphrases by replacing each word in the original passphrase with all 2048 words
 passphrase.each_with_index do |current_word, index|
-  word_list.each do |test_word|
+  bip39_word_list.each do |test_word|
     passphrase_copy = passphrase.clone
     passphrase_copy[index] = test_word
   end
@@ -92,7 +92,7 @@ valid_count = 0
 
 # generate and validate test passphrases by replacing each word in the original passphrase with all 2048 words
 passphrase.each_with_index do |current_word, index|
-  word_list.each do |test_word|
+  bip39_word_list.each do |test_word|
     passphrase_copy = passphrase.clone
     passphrase_copy[index] = test_word
     passphrase_copy_string = passphrase_copy.join(' ')
@@ -220,7 +220,7 @@ end
 
 @addresses_to_lookup = []
 passphrase.each_with_index do |current_word, index|
-  word_list.each do |test_word|
+  bip39_word_list.each do |test_word|
     passphrase_copy = passphrase.clone
     passphrase_copy[index] = test_word
     passphrase_copy_string = passphrase_copy.join(' ')
@@ -290,8 +290,8 @@ For anyone in the future that runs into this same issue, let's generate that pai
 {% highlight ruby %}
 
 word_pairs = []
-word_list.each do |first_word|
-  word_list.each do |second_word|
+bip39_word_list.each do |first_word|
+  bip39_word_list.each do |second_word|
 
     # Reject if the same word
     # Check if words are similar lengths, otherwise garment matches arm
