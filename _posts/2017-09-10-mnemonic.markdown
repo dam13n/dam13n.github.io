@@ -295,24 +295,68 @@ bip39_word_list.each do |first_word|
 
     # Reject if the same word
     # Check if words are similar lengths, otherwise garment matches arm
-    # Check if compared words contain the other, like proof contains roof
+    
     if  first_word != second_word && 
-        (first_word.length-second_word.length).abs <= 2 && 
-        (first_word.include?(second_word) || second_word.include?(first_word))
+        ( difference = (first_word.length-second_word.length).abs )<= 1 
 
+        # Check if compared words contain the other, like proof contains roof
+        if  first_word.include?(second_word) || second_word.include?(first_word)
           word_pairs << [first_word, second_word].sort
+        
+        elsif [first_word.length, second_word.length].max > 3
+          pair = [first_word, second_word].sort_by { |w| -w.length }
+          
+          # Check if all but 1 letter match up
+          if pair[0][0..-2] == pair[1][0..(pair[1].length-2+difference)] ||
+             pair[0][0..-2] == pair[1][1..(pair[1].length-1+difference)] ||
+             pair[0][1..-1] == pair[1][0..(pair[1].length-2+difference)] ||
+             pair[0][1..-1] == pair[1][1..(pair[1].length-1+difference)]  
+
+            word_pairs << [first_word, second_word].sort
+          end
+        end
     end
 
   end
+end
+
+# remove duplicates and sort alphabetically
+(word_pairs.uniq!).sort!
+
+word_pairs.each do |word_pair|
+  puts word_pair.join(', ')
 end
 
 {% endhighlight %}
 
 {% highlight console %}
 word_pairs.count
-=> 590
+=> 505
 {% endhighlight %}
 
-Well, that's a lot...matches like "use" and "mouse" not great, but "you" and "youth" is close. It'd be easy to hear that wrong over a phone call for example.
-
 I've made the [word pairs list available here](https://gist.github.com/dam13n/ccbaf7404f2d5a33f5316ed5f7a51d88).
+
+Some examples:
+{% highlight console %}
+issue, tissue
+item, kite
+item, stem
+just, must
+keen, keep
+kick, sick
+kind, mind
+
+...
+
+save, wave
+sea, seat
+seed, seek
+sell, tell
+ship, whip
+shoe, shop
+side, tide
+side, wide
+sing, wing
+ski, skin
+slab, slam
+{% endhighlight %}
