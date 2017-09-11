@@ -178,7 +178,7 @@ Aha, that matches the BIP32 Root Key. We're getting somewhere. Ok, we can do the
 
 That's the <i>BIP32 Extended Public Key</i>, which does not give results on blockchain.info. Quick googling didn't reveal any sites that let you search using this key (not that there isn't one). How do we get <i>account extended public key</i>...?
 
-Looking back at those screenshots, we see the derived addresses. Let's try to generate those. For each address, we see a path on the left. Looks like the derivation path from before but with an extra number at the end `m/44'/0'/0'/0/0`, `m/44'/0'/0'/0/1`, `m/44'/0'/0'/0/2`, etc. I'm starting to understand! Ok, so these derived addresses are really just nodes further down some tree, and the depths are separated by a "/". Not sure what those apostrophes mean yet, but maybe doesn't matter.
+Looking back at those screenshots, we see the derived addresses. Let's try to generate those. For each address, we see a path on the left. Looks like the derivation path from before but with an extra number at the end `m/44'/0'/0'/0/0`, `m/44'/0'/0'/0/1`, `m/44'/0'/0'/0/2`, etc. I'm starting to understand! Ok, so these derived addresses are really just nodes further down some tree, and the depths are separated by a "/". Not sure what those apostrophes mean, but maybe doesn't matter. [Learn more about them here](https://github.com/GemHQ/money-tree#values-of-i-and-i-prime).
 
 {% highlight ruby %}
 @node = @master.node_for_path "m/44'/0'/0'/0/0"
@@ -283,7 +283,7 @@ That's our example passphrase from the beginning, but what changed? <b>Not "proo
 
 That was a really fun problem to try to solve and how awesome is it that it worked out?? It was lucky that only 1 word was wrong, but on the other hand, it doesn't seem likely that several transcription errors would have happened when hand copying the passphrase.
 
-Knowing the solution, it's easy to look back and realize that checking for pairs of words that are very similar would have solved this a lot faster. Still, got to learn about how all this works and how HD Wallets have this tree structure that allows for basically many wallets all stored in one master wallet. All in all, this took about 5-6 hours.
+Knowing the solution, it's easy to look back and realize that checking for pairs of words that are very similar would have solved this a lot faster. Still, got to learn about how all this works and how HD Wallets have this tree structure that allows for basically many wallets all stored in one master wallet. [Learn more about HD Wallets here](https://en.bitcoin.it/wiki/Deterministic_wallet) and [here too](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki). All in all, this took about 5-6 hours.
 
 For anyone in the future that runs into this same issue, let's generate that pairs list, so that can be tried first. This is 2048^2 = 4,194,304 checks.
 
