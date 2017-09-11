@@ -111,7 +111,7 @@ end
 
 Ahhhh, only 199 valid combinations! 0.4%, that's kind of interesting on its own? I wonder if it's a similar percentage if I randomly selected 24 words. That'd be really easy to check right now...real shame.
 
-Ok, now what. Say we did have the correct passphrase. Then we should be able to generate the private key and access to the wallet. Is there an app (software wallet) that I can easily throw these test phrases in? That'd make things easy. Repetitive, but easy. If one allowed bulk checking, that'd be really nice. Don't really remember what the search results were. I feel like there may have been an app but that I'd seen they supported Bitcoin specifically/only, and my impression was that his wallet had other alt coins. And definitely didn't want to manually try 199 phrases. I didn't understand how a wallet could have more than 1 coin in it. My understanding was that a wallet is really just a corresponding public and private key and a blockchain address. Well, looks like that isn't the case here, and we'll figure this out later.
+Ok, now what. Say we did have the correct passphrase. Then we should be able to generate the private key and access to the wallet. Is there an app (software wallet) that I can easily throw these test phrases in? That'd make things easy. Repetitive, but easy. If one allowed bulk checking, that'd be really nice. Don't really remember what the search results were. I feel like there may have been an app but that I'd seen they supported Bitcoin specifically/only, and my impression was that his wallet had other alt coins. And definitely didn't want to manually try 199 phrases. I didn't understand how a wallet could have more than 1 type of coin in it. My understanding was that a wallet is really just a corresponding public and private key and a blockchain address. Well, looks like that isn't the case here, and we'll figure this out later.
 
 No matter -- if we can generate addresses at least, we can check for transactions on the blockchain. If we found a transaction, that means the mnemonic passphrase it came from would be the right one. Transactions are all completely public, and various websites make it easy to check, e.g. [blockchain.info](https://blockchain.info/). Luckily I also found a [Reddit post where someone posted their broken mnemonic](https://www.reddit.com/r/Bitcoin/comments/4izawd/i_wrote_down_the_trezor_recovery_seed_incorrectly) for a bitcoin wallet, and another redditor figured out the issue and posted some info (not the same story I referred to at the beginning of this post). This could be useful as a reference because it's a real wallet with transactions you can check. 
 
@@ -144,7 +144,7 @@ Cool, so if we can generate whatever these <i>accounted extended public keys</i>
 I looked back at Ian's javascript code to see how the Mnemonic Code Converter worked. Lots of jumping around functions and some unfamiliar javascript stuff. Pleeassseeee let there be a Ruby gem I can use. Wooo, looks like this [MoneyTree gem](https://github.com/GemHQ/money-tree) might work.
 
 
-Not sure what all this stuff means. Let's try to make one of these Master Nodes. The example is `@master = MoneyTree::Master.new seed_hex: "000102030405060708090a0b0c0d0e0f"`. Aight, we need a `seed_hex` for each mnemonic passphrase, and BipMnemonic lets us do that: `BipMnemonic.to_entropy(mnemonic: passphrase)`. Let's try using the Reddit post.
+Not sure what all this stuff means. Let's try to make one of these Master Nodes. The example is `@master = MoneyTree::Master.new seed_hex: "000102030405060708090a0b0c0d0e0f"`. Aight, we need a `seed_hex` for each mnemonic passphrase, and BipMnemonic lets us do that: `BipMnemonic.to_seed(mnemonic: passphrase)`. Let's try using the Reddit post.
 
 {% highlight ruby %}
 
@@ -189,7 +189,7 @@ Looking back at those screenshots, we see the derived addresses. Let's try to ge
 => "1BoTRHKRU4TLGdBpZ8Yjf1hXEmtxjdgb6v"
 {% endhighlight %}
 
-Well well, that's the first derived address. And a [wallet address is definitely easy to check](https://blockchain.info/address/1BoTRHKRU4TLGdBpZ8Yjf1hXEmtxjdgb6v). I asked about what coins were on the wallet, and he actually did have some bitcoin (as well as Stratis, Dash, and Litecoin). Hmmm, if we can check these in bulk, and we see any transactions, then we have a hit! Butttt...there are tons of possible derived addresses for each passphrase. [Bitref.com](https://bitref.com] allows bulk checking (found it from some stackoverflow post). There's nothing stopping someone (like your wallet provider) from starting at "m/44'/0'/0'/0/999" instead of "m/44'/0'/0'/0/0". Let's just hope not, and we'll try the first three nodes. Update the script to generate all of this.
+Well well, that's the first derived address. And a [wallet address is definitely easy to check](https://blockchain.info/address/1BoTRHKRU4TLGdBpZ8Yjf1hXEmtxjdgb6v). I asked about what coins were on the wallet, and he actually did have some bitcoin (as well as Stratis, Dash, and Litecoin). Hmmm, if we can check these in bulk, and we see any transactions, then we have a hit! Butttt...there are tons of possible derived addresses for each passphrase. [Bitref.com](https://bitref.com) allows bulk checking (found it from some stackoverflow post). There's nothing stopping someone (like your wallet provider) from starting at `m/44'/0'/0'/0/999` instead of `m/44'/0'/0'/0/0`. Let's just hope not, and we'll try the first three nodes. Update the script to generate all of this.
 
 {% highlight ruby %}
 
@@ -237,7 +237,7 @@ end
 
 {% endhighlight %}
 
-Note: Above you can see `account_extended_public_key` included. At some point I figured out the <i>account extended public keky</i> was one parent up in the derivation path. The '44' corresponds to BIP44, and the first '0' indicates Bitcoin. For Litecoin, that number is 2, and the BIP44 derivation would be "m/44'/2'/0'/0".
+Note: Above you can see `account_extended_public_key` included. At some point I figured out the <i>account extended public key</i> was one parent up in the derivation path. The '44' corresponds to BIP44, and the first '0' indicates Bitcoin. For Litecoin, that number is 2, and the BIP44 derivation would be "m/44'/2'/0'/0".
 
 That's 597 addresses to check. Bitref didn't respond when trying 200 at a time, but 100 worked. `@addresses_to_lookup[0..100].join("+")`. No hits. 101-200....no hits. 401-500 no hits. I lost a lot of hope at this point. 501-600....woahhhh wait, is that a legit transaction??
 
@@ -359,4 +359,5 @@ side, wide
 sing, wing
 ski, skin
 slab, slam
+
 {% endhighlight %}
