@@ -4,7 +4,7 @@ title:      "Mnemonic Not Working - Recovering Lost Cryptocurrencies"
 subtitle:   "How to recover an HD Wallet with Bitcoins, Etherium, Litecoin, Dash, etc."
 date:       2017-09-10 12:00:00
 author:     "Damien Sutevski"
-header-img: "img/mnemonic/crypto-bg.png"
+header-img: "img/mnemonic/crypto-bg.jpg"
 comments:   true
 published:  true
 ---
