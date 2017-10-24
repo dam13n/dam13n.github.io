@@ -361,3 +361,6 @@ ski, skin
 slab, slam
 
 {% endhighlight %}
+
+
+And for further reading, a [much cooler -- and more techincal! - story here](https://medium.freecodecamp.org/lets-enhance-how-we-found-rogerkver-s-1000-wallet-obfuscated-private-key-8514e74a5433) where they reconstruct a private key from a partial/blurred QR code and a few other hints.
