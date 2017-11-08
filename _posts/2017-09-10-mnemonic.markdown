@@ -9,6 +9,20 @@ comments:   true
 published:  true
 ---
 
+### Update
+
+A few people have asked for help recovering their passphrases after finding this article. I am happy to help but wanted to list a few resources I found that could be useful:
+
+This [guy grnqrtr has a service](http://grnqrtr.com/) for this and many references.
+
+A wallet password and recovery tool: [btcrecover](https://github.com/gurnec/btcrecover).
+
+A [python seed recover script](https://github.com/gurnec/btcrecover/blob/master/docs/Seedrecover_Quick_Start_Guide.md) from the above toolset that looks like it specifically addresses the issue of this article.
+
+
+
+<hr style="border-color: gray;"/>
+
 This post is long and covers my entire process, and I learned a lot of things on the way that are worth mentioning if you are interested in some technical crypto knowledge. Keep in mind there was definitely some trial and error and more direct processes possible (easy to see in hindsight). I use "word list", "passphrase", and "mnemonic" interchangeably and together below at times, so sorry for any confusion.
 
 # Background Story
