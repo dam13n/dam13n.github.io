@@ -48,7 +48,7 @@ Here's the passphrase word list (not the original, but will work as an example):
 fiscal bomb mutual one alley mistake unfair they proof unveil month prepare logic yard daring adapt eyebrow turn burst mandate win report maximum giraffe
 ```
 
-Aight, first things first, what does the [Mnemonic Code Converter / BIP39 Tool](https://www.ledgerwallet.com/support/bip39-standalone.html) by [Ian Coleman](https://github.com/iancoleman/bip39) (and used by Ledger) say when you enter this passphrase?
+Aight, first things first, what does the [Mnemonic Code Converter / BIP39 Tool](https://iancoleman.io/bip39/) by [Ian Coleman](https://github.com/iancoleman/bip39) (and used by Ledger) say when you enter this passphrase?
 
 
 <a href="#">
