@@ -16,6 +16,7 @@ markdown: kramdown
 highlighter: pygments
 permalink: "/:year/:month/:day/:title"
 paginate: 5
+plugins: [jekyll-paginate]
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
 exclude_pages: [ "Contact", "Publications"]

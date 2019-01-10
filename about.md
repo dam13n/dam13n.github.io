@@ -33,6 +33,8 @@ I like to listen to books a lot using the [Audible app](http://www.audible.com/)
 
 My favorite video game is Rocket League. Some recent games I've liked are Rimworld, Brawlhalla, Stardew Valley, and Terraria. My old love is CS.
 
-ᕕ( ᐛ )ᕗ
+### Extraneous for now
 
+[Mountain Project climbs / ticks and to-do list !]('https://www.mountainproject.com/user/200403455/damien-sutevski')
 
+[Athlink runs]('https://www.athlinks.com/athletes/368353775')
