@@ -35,6 +35,6 @@ My favorite video game is Rocket League. Some recent games I've liked are Rimwor
 
 ### Extraneous for now
 
-[Mountain Project climbs / ticks and to-do list !]('https://www.mountainproject.com/user/200403455/damien-sutevski')
+[Mountain Project climbs / ticks and to-do list !](https://www.mountainproject.com/user/200403455/damien-sutevski)
 
-[Athlink runs]('https://www.athlinks.com/athletes/368353775')
+[Athlink runs](https://www.athlinks.com/athletes/368353775)
