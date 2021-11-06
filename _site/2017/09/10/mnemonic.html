@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="And the art of under-engineering">
+
+    <title>Mnemonic Not Working - Recovering Lost Cryptocurrencies - Damien's blog</title>
+
+    <link rel="canonical" href="http://damien.la/2017/09/10/mnemonic">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+        
+    
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Damien's blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+                <li>
+                    <a href="/about">About</a>
+                </li>
+                
+                <li>
+                    <a href="/ideas">Ideas</a>
+                </li>
+                
+                <li>
+                    <a href="/projects">Projects</a>
+                </li>
+                
+                <li>
+                    <a href="/work">Work</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/mnemonic/crypto-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Mnemonic Not Working - Recovering Lost Cryptocurrencies</h1>
+                    
+                    <h2 class="subheading">How to recover an HD Wallet with Bitcoins, Etherium, Litecoin, Dash, etc.</h2>
+                    
+                    <span class="meta">Posted on September 10, 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<h3 id="update">Update</h3>
+
+<p>A few people have asked for help recovering their passphrases after finding this article. I am happy to help but wanted to list a few resources I found that could be useful:</p>
+
+<p>You can reach out to <a href="https://cryptoassetrecovery.com/">Crypto Asset Recovery</a> for help in crypto asset recovery.</p>
+
+<p>A wallet password and recovery tool: <a href="https://github.com/gurnec/btcrecover">btcrecover</a>.</p>
+
+<p>A <a href="https://github.com/gurnec/btcrecover/blob/master/docs/Seedrecover_Quick_Start_Guide.md">python seed recover script</a> from the above toolset that looks like it specifically addresses the issue of this article.</p>
+
+<hr style="border-color: gray;" />
+
+<p>This post is long and covers my entire process, and I learned a lot of things on the way that are worth mentioning if you are interested in some technical crypto knowledge. Keep in mind there was definitely some trial and error and more direct processes possible (easy to see in hindsight). I use “word list”, “passphrase”, and “mnemonic” interchangeably and together below at times, so sorry for any confusion.</p>
+
+<h1 id="background-story">Background Story</h1>
+
+<p>So my friend texts me that her boyfriend had lost $10K worth of coins after updating his wallet device, a <a href="https://www.ledgerwallet.com/products/ledger-nano-s">Ledger Nano S</a>. This is a USB hardware wallet that stores multiple types of coins “offline”. Technically, coins are never really stored because they only exist on blockchains, but the passwords to access them are what people secure away. I don’t know the details; something like… he was prompted to update the device, and <a href="http://support.ledgerwallet.com/knowledge_base/topics/after-the-nano-s-update-i-cant-find-my-coins">the default choice cleared out the existing wallet on it</a>. All the coins appeared lost after hours of effort.</p>
+
+<p>I felt really bad for him and angry that Ledger doesn’t make these consequences absolutely clear (afaik). I’ve been learning a lot more about cryptocurrencies lately, so while I assumed it was a lost cause, I wanted to help out if I could. My first thought was to leave the device completely alone, akin to not making any changes to your computer files if you accidentally deleted stuff you want to recover. Probably not analogous but a safe move until Ledger support could be reached.</p>
+
+<p>After a little more conversation, I learned that he had written down the 24-word mnemonic passphrase for his wallet. These are automatically generated by the device for you. The 24 word passphrases are not the actual password themselves, but they can be converted into the actual passwords following a standard specification called <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP39</a>. Two compounding issues though:</p>
+
+<ul>
+  <li>It takes ~20 minutes to input the passphrase on the device, so any input mistakes are punishing.</li>
+  <li>What if the written down word list was wrong?</li>
+</ul>
+
+<p>But he had the word list, so even with something written down wrong, it made me optimistic recovery was a possibility. I remembered reading a similar story somewhere, probably on Reddit, where someone had written down one of their 24 words incorrectly, and a friendly interneter wrote a script to find out which word was a mistake and solved it! Something like that anyway - I searched briefly and couldn’t find the story. In any case, I googled about restoring wallets from Ledger and passed on <a href="http://support.ledgerwallet.com/knowledge_base/topics/how-to-restore-my-backup-without-a-ledger-wallet">their support page link</a> and a <a href="https://www.ledgerwallet.com/support/bip39-standalone.html">website that makes it easier to check if your 24 words are valid</a>. At this point, I think they accepted the loss but had some hope.</p>
+
+<p>The next day they still hadn’t had luck and sent me over the 24 words to play with.</p>
+
+<h1 id="finding-the-right-mnemonic-passphrase">Finding the right mnemonic passphrase</h1>
+
+<p>Here’s the passphrase word list (not the original, but will work as an example):</p>
+
+<pre><code>fiscal bomb mutual one alley mistake unfair they proof unveil month prepare logic yard daring adapt eyebrow turn burst mandate win report maximum giraffe
+</code></pre>
+
+<p>Aight, first things first, what does the <a href="https://iancoleman.io/bip39/">Mnemonic Code Converter / BIP39 Tool</a> by <a href="https://github.com/iancoleman/bip39">Ian Coleman</a> (and used by Ledger) say when you enter this passphrase?</p>
+
+<p><a href="#">
+    <img style="border: lightgray; border-width: thin; border-style: solid;" src="/img/mnemonic/invalid-mnemonic.png" alt="invalid mnemonic" />
+</a></p>
+
+<p>Well, it’s clear the provided passphrase is wrong. I don’t know the details of how, but the last word in a BIP39 word sequence (whether 12 words, 24 words, or other multiples of 3) is the <b>checksum</b>. The checksum tells you that the rest of its preceding sequence is valid, so if you picked 24 random words from <a href="https://github.com/bitcoin/bips/tree/master/bip-0039">2048 words of the BIP 39 spec</a>, they’d likely be an invalid sequence. FYI, everywhere I read strongly recommended you do not generate your own passphrase, and let it be generated for you. Essentially, one that you try to create will never be as entropic, or random, as one algorithmically generated for you.</p>
+
+<p>Anywayyyy, I first asked them if they had any ideas of words that could be wrong, like copied over incorrectly, hard to read, or written down by row instead of by column. In the original word list, the word “rigid” appeard twice and at the top of both columns on their recovery phrase card (card pictured below).</p>
+
+<p><a href="#">
+    <img src="/img/mnemonic/ledger-recovery-phrase-card.jpg" alt="ledger recovery phrase card" />
+</a></p>
+
+<p>BIP39 allows repeated words, so the double “rigid” wasn’t necessarily an issue. But better than going off of nothing at all I guess.</p>
+
+<p>Say we can try substituting one of those “rigid”s with other words. But that’s already 2048 possibilities…not something you want to do manually, especially since it’s likely a dead end. Well, easy enough to write a script to produce the passphrases.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># an array of the 2048 word list</span>
+<span class="n">bip39_word_list</span> <span class="o">=</span> <span class="sx">%w(
+  abandon
+  ability
+  able
+  about
+  above
+  absent
+  absorb
+  ...
+)</span>
+
+<span class="c1"># array of our incorrect 24 word phrase</span>
+<span class="n">passphrase</span> <span class="o">=</span> <span class="sx">%w(fiscal bomb mutual ... )</span>
+
+<span class="c1"># generate test passphrases by replacing each word in the original passphrase with all 2048 words</span>
+<span class="n">passphrase</span><span class="p">.</span><span class="nf">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">current_word</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span>
+  <span class="n">bip39_word_list</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">test_word</span><span class="o">|</span>
+    <span class="n">passphrase_copy</span> <span class="o">=</span> <span class="n">passphrase</span><span class="p">.</span><span class="nf">clone</span>
+    <span class="n">passphrase_copy</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_word</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Instead of just replacing the “rigids”, I figured I’d just make loops to generate all 24*2048 possible test passphrases. That’s 49,152 in total. This is testing the “best case” scenario, where only 1 word in the passphrase is incorrect. And only the first step. If it’s more than 1 word, or if the order of the words is wrong, then we’ll have a much bigger problem to deal with.</p>
+
+<p>As we learned earlier, the last word in these test passphrases acts a checksum, and hopefully the majority of the 49,512 are not valid mnemonics at all. How do we test that automatedly? I looked into Ian’s javascript code to learn more and then found the <a href="https://github.com/sreekanthgs/bip_mnemonic">Ruby gem BipMnemonic</a>. Let’s expand the script to check for validity.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">valid_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># generate and validate test passphrases by replacing each word in the original passphrase with all 2048 words</span>
+<span class="n">passphrase</span><span class="p">.</span><span class="nf">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">current_word</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span>
+  <span class="n">bip39_word_list</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">test_word</span><span class="o">|</span>
+    <span class="n">passphrase_copy</span> <span class="o">=</span> <span class="n">passphrase</span><span class="p">.</span><span class="nf">clone</span>
+    <span class="n">passphrase_copy</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_word</span>
+    <span class="n">passphrase_copy_string</span> <span class="o">=</span> <span class="n">passphrase_copy</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span>
+
+    <span class="k">begin</span>
+      <span class="c1"># throws an error if the mnemonic is invalid</span>
+      <span class="no">BipMnemonic</span><span class="p">.</span><span class="nf">to_entropy</span><span class="p">(</span><span class="ss">mnemonic: </span><span class="n">passphrase_copy_string</span><span class="p">)</span>
+      <span class="n">valid_count</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">rescue</span> <span class="no">SecurityError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Ahhhh, only 199 valid combinations! 0.4%, that’s kind of interesting on its own? I wonder if it’s a similar percentage if I randomly selected 24 words. That’d be really easy to check right now…real shame.</p>
+
+<p>Ok, now what. Say we did have the correct passphrase. Then we should be able to generate the private key and access to the wallet. Is there an app (software wallet) that I can easily throw these test phrases in? That’d make things easy. Repetitive, but easy. If one allowed bulk checking, that’d be really nice. Don’t really remember what the search results were. I feel like there may have been an app but that I’d seen they supported Bitcoin specifically/only, and my impression was that his wallet had other alt coins. And definitely didn’t want to manually try 199 phrases. I didn’t understand how a wallet could have more than 1 type of coin in it. My understanding was that a wallet is really just a corresponding public and private key and a blockchain address. Well, looks like that isn’t the case here, and we’ll figure this out later.</p>
+
+<p>No matter – if we can generate addresses at least, we can check for transactions on the blockchain. If we found a transaction, that means the mnemonic passphrase it came from would be the right one. Transactions are all completely public, and various websites make it easy to check, e.g. <a href="https://blockchain.info/">blockchain.info</a>. Luckily I also found a <a href="https://www.reddit.com/r/Bitcoin/comments/4izawd/i_wrote_down_the_trezor_recovery_seed_incorrectly">Reddit post where someone posted their broken mnemonic</a> for a bitcoin wallet, and another redditor figured out the issue and posted some info (not the same story I referred to at the beginning of this post). This could be useful as a reference because it’s a real wallet with transactions you can check.</p>
+
+<p>Using the Mnemonic Code Converter for the Reddit post passphrase <code>honey relief scale kite dose lyrics they middle globe exhaust smooth galaxy horror ensure grape way gift embody spring cupboard horror hurt image swift</code>, we get all sorts of data: seed, coin, root key, derivation path, derived addresses…what is all this crap. Why are there so many addresses? Here are some screenshots.</p>
+
+<p><a href="#">
+    <img style="border: lightgray; border-width: thin; border-style: solid;" src="/img/mnemonic/reddit/seed.png" alt="mnemonic seed" />
+</a></p>
+
+<p><a href="#">
+    <img style="border: lightgray; border-width: thin; border-style: solid;" src="/img/mnemonic/reddit/keys.png" alt="mnemonic extended keys" />
+</a></p>
+
+<p><a href="#">
+    <img style="border: lightgray; border-width: thin; border-style: solid;" src="/img/mnemonic/reddit/derived-addresses.png" alt="mnemonic derived addresses" />
+</a></p>
+
+<p>Well, if we <a href="https://blockchain.info/xpub/xpub6CzbQ5BLF2mngsMXijEfdvL5DQZZqmD4X8H5kxH8GzpRQVLk1bX8ebsknaUinwRZug3rqJ2vqogYc52rNjVhXRxpz87W9yPfJapbhdrVaEy">check the Account Extended Public Key on blockchain.info</a>, we see some transactions! Note that some of those addresses on the left match the derived addresses above.</p>
+
+<p><a href="#">
+    <img style="border: lightgray; border-width: thin; border-style: solid;" src="/img/mnemonic/reddit/blockchain-extended-key.png" alt="blockchain extended key" />
+</a></p>
+
+<p><a href="#">
+    <img style="border: lightgray; border-width: thin; border-style: solid;" src="/img/mnemonic/reddit/blockchain-transactions.png" alt="blockchain transactions" />
+</a></p>
+
+<p>Cool, so if we can generate whatever these <i>accounted extended public keys</i> are for our 199 passphrases, we can check those online. Maybe there is a way to check in bulk. For now, let’s just see if we can generate the keys. Could also be a fun exercise to download the entire Bitcoin blockchain and figure out how to read it myself…another time perhaps.</p>
+
+<p>I looked back at Ian’s javascript code to see how the Mnemonic Code Converter worked. Lots of jumping around functions and some unfamiliar javascript stuff. Pleeassseeee let there be a Ruby gem I can use. Wooo, looks like this <a href="https://github.com/GemHQ/money-tree">MoneyTree gem</a> might work.</p>
+
+<p>Not sure what all this stuff means. Let’s try to make one of these Master Nodes. The example is <code>@master = MoneyTree::Master.new seed_hex: "000102030405060708090a0b0c0d0e0f"</code>. Aight, we need a <code>seed_hex</code> for each mnemonic passphrase, and BipMnemonic lets us do that: <code>BipMnemonic.to_seed(mnemonic: passphrase)</code>. Let’s try using the Reddit post.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">seed_hex</span> <span class="o">=</span> <span class="no">BipMnemonic</span><span class="p">.</span><span class="nf">to_seed</span><span class="p">(</span><span class="ss">mnemonic: </span><span class="s1">'honey relief scale kite dose lyrics they middle globe exhaust smooth galaxy horror ensure grape way gift embody spring cupboard horror hurt image swift'</span><span class="p">)</span>
+
+<span class="vi">@master</span> <span class="o">=</span> <span class="no">MoneyTree</span><span class="o">::</span><span class="no">Master</span><span class="p">.</span><span class="nf">new</span> <span class="ss">seed_hex: </span><span class="n">seed_hex</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">=&gt;</span><span class="w"> </span><span class="s2">"37757ee9da759364544a655593057c991958e6014fa8ebfe242bc11f5c8373b3735b0f0e1e731c3355efe4bc09cdbf65ba5ca79af1061a5847c6a6528d8d5d4a"</span>
+<span class="go">
+</span><span class="gp">=&gt;</span><span class="w"> </span><span class="c">#&lt;MoneyTree::Master:0x007ff651ebea70 @depth=0, @index=0, ...</span></code></pre></figure>
+
+<p>Now there is a method available on the master node object we can try: <code>@master.to_bip32(:private)</code>.</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">=&gt;</span><span class="w"> </span><span class="s2">"xprv9s21ZrQH143K3yx2Tn5J3G2mYTpUnjrdQUkwXZxPiid5eJgWYKYQfpDCMDWQqfq8whGfts9q5txq6ERRz3rX67GgFzAfv9E3Re4ecDoG3FF"</span></code></pre></figure>
+
+<p>Aha, that matches the BIP32 Root Key. We’re getting somewhere. Ok, we can do the same thing to find the public key, but if you try searching the result on blockchain, nada. We gotta figure out this derivation path stuff to get that <i>account extended public key</i>. MoneyTree let’s you create child nodes off the master, and you specify a <b>BIP32 Derivation Path</b>. Let’s try whatever this <code>m/44'/0'/0'/0</code> thing is.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@node</span> <span class="o">=</span> <span class="vi">@master</span><span class="p">.</span><span class="nf">node_for_path</span> <span class="s2">"m/44'/0'/0'/0"</span>
+<span class="vi">@node</span><span class="p">.</span><span class="nf">to_bip32</span><span class="p">(</span><span class="ss">:public</span><span class="p">)</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">=&gt;</span><span class="w"> </span><span class="s2">"xpub6EtUqtb2dbwBrv8gdqvppvbu3MwNkSfKvd3duxQdyErmHm6PUq9P6AwqtaZp24oB12eEyqkbGnnJeR2JAVkossGdgghx7KhxyGQj6hNvVpX"</span></code></pre></figure>
+
+<p>That’s the <i>BIP32 Extended Public Key</i>, which does not give results on blockchain.info. Quick googling didn’t reveal any sites that let you search using this key (not that there isn’t one). How do we get <i>account extended public key</i>…?</p>
+
+<p>Looking back at those screenshots, we see the derived addresses. Let’s try to generate those. For each address, we see a path on the left. Looks like the derivation path from before but with an extra number at the end <code>m/44'/0'/0'/0/0</code>, <code>m/44'/0'/0'/0/1</code>, <code>m/44'/0'/0'/0/2</code>, etc. I’m starting to understand! Ok, so these derived addresses are really just nodes further down some tree, and the depths are separated by a “/”. Not sure what those apostrophes mean, but maybe doesn’t matter. <a href="https://github.com/GemHQ/money-tree#values-of-i-and-i-prime">Learn more about them here</a>.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@node</span> <span class="o">=</span> <span class="vi">@master</span><span class="p">.</span><span class="nf">node_for_path</span> <span class="s2">"m/44'/0'/0'/0/0"</span>
+<span class="vi">@node</span><span class="p">.</span><span class="nf">to_address</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">=&gt;</span><span class="w"> </span><span class="s2">"1BoTRHKRU4TLGdBpZ8Yjf1hXEmtxjdgb6v"</span></code></pre></figure>
+
+<p>Well well, that’s the first derived address. And a <a href="https://blockchain.info/address/1BoTRHKRU4TLGdBpZ8Yjf1hXEmtxjdgb6v">wallet address is definitely easy to check</a>. I asked about what coins were on the wallet, and he actually did have some bitcoin (as well as Stratis, Dash, and Litecoin). Hmmm, if we can check these in bulk, and we see any transactions, then we have a hit! Butttt…there are tons of possible derived addresses for each passphrase. <a href="https://bitref.com">Bitref.com</a> allows bulk checking (found it from some stackoverflow post). There’s nothing stopping someone (like your wallet provider) from starting at <code>m/44'/0'/0'/0/999</code> instead of <code>m/44'/0'/0'/0/0</code>. Let’s just hope not, and we’ll try the first three nodes. Update the script to generate all of this.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">get_keys_from_seed_hex</span> <span class="n">seed_hex</span><span class="p">,</span> <span class="n">passphrase_copy_string</span>
+  <span class="vi">@master</span> <span class="o">=</span> <span class="no">MoneyTree</span><span class="o">::</span><span class="no">Master</span><span class="p">.</span><span class="nf">new</span> <span class="ss">seed_hex: </span><span class="n">seed_hex</span>
+  <span class="vi">@node</span> <span class="o">=</span> <span class="vi">@master</span><span class="p">.</span><span class="nf">node_for_path</span> <span class="s2">"m/44'/0'/0'/0"</span>
+  <span class="vi">@account_node</span> <span class="o">=</span> <span class="vi">@master</span><span class="p">.</span><span class="nf">node_for_path</span> <span class="s2">"m/44'/0'/0'"</span>
+  
+  <span class="n">bip32_public_key</span> <span class="o">=</span> <span class="vi">@node</span><span class="p">.</span><span class="nf">to_bip32</span><span class="p">(</span><span class="ss">:public</span><span class="p">)</span>
+  <span class="n">bip32_private_key</span> <span class="o">=</span> <span class="vi">@node</span><span class="p">.</span><span class="nf">to_bip32</span><span class="p">(</span><span class="ss">:private</span><span class="p">)</span>
+  <span class="n">account_extended_public_key</span> <span class="o">=</span> <span class="vi">@account_node</span><span class="p">.</span><span class="nf">to_bip32</span>
+
+  <span class="n">first_address</span> <span class="o">=</span> <span class="vi">@master</span><span class="p">.</span><span class="nf">node_for_path</span><span class="p">(</span><span class="s2">"m/44'/0'/0'/0/0"</span><span class="p">).</span><span class="nf">to_address</span>
+  <span class="n">second_address</span> <span class="o">=</span> <span class="vi">@master</span><span class="p">.</span><span class="nf">node_for_path</span><span class="p">(</span><span class="s2">"m/44'/0'/0'/0/1"</span><span class="p">).</span><span class="nf">to_address</span>
+  <span class="n">third_address</span> <span class="o">=</span> <span class="vi">@master</span><span class="p">.</span><span class="nf">node_for_path</span><span class="p">(</span><span class="s2">"m/44'/0'/0'/0/2"</span><span class="p">).</span><span class="nf">to_address</span>
+
+  <span class="vi">@addresses_to_lookup</span> <span class="o">&lt;&lt;</span> <span class="n">first_address</span>
+  <span class="vi">@addresses_to_lookup</span> <span class="o">&lt;&lt;</span> <span class="n">second_address</span>
+  <span class="vi">@addresses_to_lookup</span> <span class="o">&lt;&lt;</span> <span class="n">third_address</span>
+
+  <span class="c1"># just to get some visual feedback of all this stuff</span>
+  <span class="nb">puts</span> <span class="s2">"account public key: </span><span class="si">#{</span><span class="n">account_extended_public_key</span><span class="si">}</span><span class="s2">"</span>
+  <span class="nb">puts</span> <span class="s2">"public  key: </span><span class="si">#{</span><span class="n">bip32_public_key</span><span class="si">}</span><span class="s2">"</span>
+  <span class="nb">puts</span> <span class="s2">"private key: </span><span class="si">#{</span><span class="n">bip32_private_key</span><span class="si">}</span><span class="s2">"</span>
+
+
+<span class="k">end</span>
+
+<span class="vi">@addresses_to_lookup</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">passphrase</span><span class="p">.</span><span class="nf">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">current_word</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span>
+  <span class="n">bip39_word_list</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">test_word</span><span class="o">|</span>
+    <span class="n">passphrase_copy</span> <span class="o">=</span> <span class="n">passphrase</span><span class="p">.</span><span class="nf">clone</span>
+    <span class="n">passphrase_copy</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_word</span>
+    <span class="n">passphrase_copy_string</span> <span class="o">=</span> <span class="n">passphrase_copy</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span>
+    
+    <span class="k">begin</span>
+      <span class="n">seed_hex</span> <span class="o">=</span> <span class="no">BipMnemonic</span><span class="p">.</span><span class="nf">to_seed</span><span class="p">(</span><span class="ss">mnemonic: </span><span class="n">passphrase_copy_string</span><span class="p">)</span>
+
+      <span class="n">get_keys_from_seed_hex</span> <span class="n">seed_hex</span><span class="p">,</span> <span class="n">passphrase_copy_string</span>
+
+    <span class="k">rescue</span> <span class="no">SecurityError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Note: Above you can see <code>account_extended_public_key</code> included. At some point I figured out the <i>account extended public key</i> was one parent up in the derivation path. The ‘44’ corresponds to BIP44, and the first ‘0’ indicates Bitcoin. For Litecoin, that number is 2, and the BIP44 derivation would be “m/44’/2’/0’/0”.</p>
+
+<p>That’s 597 addresses to check. Bitref didn’t respond when trying 200 at a time, but 100 worked. <code>@addresses_to_lookup[0..100].join("+")</code>. No hits. 101-200….no hits. 401-500 no hits. I lost a lot of hope at this point. 501-600….woahhhh wait, is that a legit transaction??</p>
+
+<p><a href="#">
+    <img style="border: lightgray; border-width: thin; border-style: solid;" src="/img/mnemonic/reddit/bitref-transaction.png" alt="bitref transactions" />
+</a></p>
+
+<p>I got really excited at this point and figured this meant one of the test passphrases was correct. Unfortunately Bitref doesn’t put the address along side the transactions (didn’t check the source). Not the most efficient, but I just did a manual binary search (checking the addresses between 500-550, then 500-525, etc. until I could narrow it down to at least 1 of the 3 transactions that were found. The 4th transaction, the one on top, was the coins getting moved to a new wallet (after this recovery). Ok, got 1. Now let’s update the <code>:get_keys_from_seed_hex</code> method and print out the passphrase when we get an address match.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">get_keys_from_seed_hex</span> <span class="n">seed_hex</span><span class="p">,</span> <span class="n">passphrase_copy_string</span>
+  <span class="vi">@master</span> <span class="o">=</span> <span class="no">MoneyTree</span><span class="o">::</span><span class="no">Master</span><span class="p">.</span><span class="nf">new</span> <span class="ss">seed_hex: </span><span class="n">seed_hex</span>
+
+  <span class="n">first_address</span> <span class="o">=</span> <span class="vi">@master</span><span class="p">.</span><span class="nf">node_for_path</span><span class="p">(</span><span class="s2">"m/44'/0'/0'/0/0"</span><span class="p">).</span><span class="nf">to_address</span>
+  <span class="n">second_address</span> <span class="o">=</span> <span class="vi">@master</span><span class="p">.</span><span class="nf">node_for_path</span><span class="p">(</span><span class="s2">"m/44'/0'/0'/0/1"</span><span class="p">).</span><span class="nf">to_address</span>
+  <span class="n">third_address</span> <span class="o">=</span> <span class="vi">@master</span><span class="p">.</span><span class="nf">node_for_path</span><span class="p">(</span><span class="s2">"m/44'/0'/0'/0/2"</span><span class="p">).</span><span class="nf">to_address</span>
+
+  <span class="vi">@addresses_to_lookup</span> <span class="o">&lt;&lt;</span> <span class="n">first_address</span>
+  <span class="vi">@addresses_to_lookup</span> <span class="o">&lt;&lt;</span> <span class="n">second_address</span>
+  <span class="vi">@addresses_to_lookup</span> <span class="o">&lt;&lt;</span> <span class="n">third_address</span>
+
+  <span class="c1"># an example value here would be 1BoTRHKRU4TLGdBpZ8Yjf1hXEmtxjdgb6v</span>
+  <span class="n">address_to_check</span> <span class="o">=</span> <span class="s2">"removed for privacy"</span>
+
+  <span class="k">if</span> <span class="n">first_address</span> <span class="o">==</span> <span class="n">address_to_check</span> <span class="o">||</span> <span class="n">second_address</span> <span class="o">==</span> <span class="n">address_to_check</span> <span class="o">||</span> <span class="n">third_address</span> <span class="o">==</span> <span class="n">address_to_check</span>
+    <span class="nb">puts</span> <span class="n">passphrase_copy_string</span>
+  <span class="k">end</span>
+
+<span class="k">end</span></code></pre></figure>
+
+<p>So I run that, and an out pops the matching passphrase:</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">=&gt;</span><span class="w"> </span><span class="s2">"fiscal bomb mutual one alley mistake unfair they roof unveil month prepare logic yard daring adapt eyebrow turn burst mandate win report maximum giraffe"</span></code></pre></figure>
+
+<p>That’s our example passphrase from the beginning, but what changed? <b>Not “proof”…it should be “roof”</b> !! I didn’t want to create my own wallet to check or invade privacy or anything, so I sent off the fix to the coin owner to try it out himself. SUCCESS. He got all his coins back – $10,000 worth – and looks like he moved them to a new wallet.</p>
+
+<h1 id="in-conclusion">In Conclusion</h1>
+
+<p>That was a really fun problem to try to solve and how awesome is it that it worked out?? It was lucky that only 1 word was wrong, but on the other hand, it doesn’t seem likely that several transcription errors would have happened when hand copying the passphrase.</p>
+
+<p>Knowing the solution, it’s easy to look back and realize that checking for pairs of words that are very similar would have solved this a lot faster. Still, got to learn about how all this works and how HD Wallets have this tree structure that allows for basically many wallets all stored in one master wallet. <a href="https://en.bitcoin.it/wiki/Deterministic_wallet">Learn more about HD Wallets here</a> and <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">here too</a>. All in all, this took about 5-6 hours.</p>
+
+<p>For anyone in the future that runs into this same issue, let’s generate that pairs list, so that can be tried first. This is 2048^2 = 4,194,304 checks.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">word_pairs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">bip39_word_list</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">first_word</span><span class="o">|</span>
+  <span class="n">bip39_word_list</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">second_word</span><span class="o">|</span>
+
+    <span class="c1"># Reject if the same word</span>
+    <span class="c1"># Check if words are similar lengths, otherwise garment matches arm</span>
+    
+    <span class="k">if</span>  <span class="n">first_word</span> <span class="o">!=</span> <span class="n">second_word</span> <span class="o">&amp;&amp;</span> 
+        <span class="p">(</span> <span class="n">difference</span> <span class="o">=</span> <span class="p">(</span><span class="n">first_word</span><span class="p">.</span><span class="nf">length</span><span class="o">-</span><span class="n">second_word</span><span class="p">.</span><span class="nf">length</span><span class="p">).</span><span class="nf">abs</span> <span class="p">)</span><span class="o">&lt;=</span> <span class="mi">1</span> 
+
+        <span class="c1"># Check if compared words contain the other, like proof contains roof</span>
+        <span class="k">if</span>  <span class="n">first_word</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">second_word</span><span class="p">)</span> <span class="o">||</span> <span class="n">second_word</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">first_word</span><span class="p">)</span>
+          <span class="n">word_pairs</span> <span class="o">&lt;&lt;</span> <span class="p">[</span><span class="n">first_word</span><span class="p">,</span> <span class="n">second_word</span><span class="p">].</span><span class="nf">sort</span>
+        
+        <span class="k">elsif</span> <span class="p">[</span><span class="n">first_word</span><span class="p">.</span><span class="nf">length</span><span class="p">,</span> <span class="n">second_word</span><span class="p">.</span><span class="nf">length</span><span class="p">].</span><span class="nf">max</span> <span class="o">&gt;</span> <span class="mi">3</span>
+          <span class="n">pair</span> <span class="o">=</span> <span class="p">[</span><span class="n">first_word</span><span class="p">,</span> <span class="n">second_word</span><span class="p">].</span><span class="nf">sort_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">w</span><span class="o">|</span> <span class="o">-</span><span class="n">w</span><span class="p">.</span><span class="nf">length</span> <span class="p">}</span>
+          
+          <span class="c1"># Check if all but 1 letter match up</span>
+          <span class="k">if</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="o">..-</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="o">..</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">length</span><span class="o">-</span><span class="mi">2</span><span class="o">+</span><span class="n">difference</span><span class="p">)]</span> <span class="o">||</span>
+             <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="o">..-</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="o">..</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">length</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">difference</span><span class="p">)]</span> <span class="o">||</span>
+             <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="o">..-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="o">..</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">length</span><span class="o">-</span><span class="mi">2</span><span class="o">+</span><span class="n">difference</span><span class="p">)]</span> <span class="o">||</span>
+             <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="o">..-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="o">..</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">length</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">difference</span><span class="p">)]</span>  
+
+            <span class="n">word_pairs</span> <span class="o">&lt;&lt;</span> <span class="p">[</span><span class="n">first_word</span><span class="p">,</span> <span class="n">second_word</span><span class="p">].</span><span class="nf">sort</span>
+          <span class="k">end</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># remove duplicates and sort alphabetically</span>
+<span class="p">(</span><span class="n">word_pairs</span><span class="p">.</span><span class="nf">uniq!</span><span class="p">).</span><span class="nf">sort!</span>
+
+<span class="n">word_pairs</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">word_pair</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">word_pair</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">', '</span><span class="p">)</span>
+<span class="k">end</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">word_pairs.count
+</span><span class="gp">=&gt;</span><span class="w"> </span>505</code></pre></figure>
+
+<p>I’ve made the <a href="https://gist.github.com/dam13n/ccbaf7404f2d5a33f5316ed5f7a51d88">word pairs list available here</a>.</p>
+
+<p>Some examples:</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">issue, tissue
+item, kite
+item, stem
+just, must
+keen, keep
+kick, sick
+kind, mind
+
+</span><span class="c">...
+</span><span class="go">
+save, wave
+sea, seat
+seed, seek
+sell, tell
+ship, whip
+shoe, shop
+side, tide
+side, wide
+sing, wing
+ski, skin
+slab, slam</span></code></pre></figure>
+
+<p>And for further reading, a <a href="https://medium.freecodecamp.org/lets-enhance-how-we-found-rogerkver-s-1000-wallet-obfuscated-private-key-8514e74a5433">much cooler – and more techincal! - story here</a> where they reconstruct a private key from a partial/blurred QR code and a few other hints.</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2015/12/02/ruby2.3.0" data-toggle="tooltip" data-placement="top" title="Ruby 2.3.0 Highlights">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+
+</article>
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <section class="notepad-disqus">
+<div class="row">
+       <div class="small-12 columns">
+               <h1 class="notepad-comments-header">Comments</h1>
+               <div id="disqus_thread"></div>
+               <script type="text/javascript">
+                   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                   var disqus_shortname = 'dam13n'; // required: replace example with your forum shortname
+
+                   /* * * DON'T EDIT BELOW THIS LINE * * */
+                   (function() {
+                       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                   })();
+               </script>
+               <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+               <!-- <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a> -->
+       </div>
+</div>
+</section>
+<div class="cf"></div>
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <!-- <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li> -->
+                    
+                    <li>
+                        <a href="https://twitter.com/dam13n">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://www.facebook.com/damienster">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://github.com/dam13n">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://linkedin.com/in/damiensutevski">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; Damien Sutevski 2021</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+
+</body>
+
+</html>

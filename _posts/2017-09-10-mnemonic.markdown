@@ -13,7 +13,7 @@ published:  true
 
 A few people have asked for help recovering their passphrases after finding this article. I am happy to help but wanted to list a few resources I found that could be useful:
 
-This [guy grnqrtr has a service](http://grnqrtr.com/) for this and many references.
+You can reach out to [Crypto Asset Recovery](https://cryptoassetrecovery.com/) for help in crypto asset recovery.
 
 A wallet password and recovery tool: [btcrecover](https://github.com/gurnec/btcrecover).
 
