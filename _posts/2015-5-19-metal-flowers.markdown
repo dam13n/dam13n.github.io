@@ -9,7 +9,7 @@ published:  true
 comments:   true
 ---
 
-I was inspired by [this Reddit post earlier this year](http://www.reddit.com/r/DIY/comments/2ozwb8/copper_flowers_just_in_time_for_the_holidays/) and made a copper flower for my girlfriend. It turned out really well even though as a first try. I had since made another as a wedding gift and decided to make a steel version for my mom.
+I was inspired by [this Reddit post earlier this year](http://www.reddit.com/r/DIY/comments/2ozwb8/copper_flowers_just_in_time_for_the_holidays/) and made a copper flower. It turned out really well the first try. I had since made another as a wedding gift (and later for my fiance) and decided to make a steel version for my mom.
 
 Steel is less malleable, but some plated steel sheets I found at a local hardware shop were really thin and seemed bendy enough. Steel's also cheaper than copper and alumnimum, and I could go for that all silver-color look. Read through this post before you choose steel though.
 
