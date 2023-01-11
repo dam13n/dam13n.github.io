@@ -3,10 +3,10 @@
   <channel>
     <title>Damien's blog</title>
     <description>And the art of under-engineering</description>
-    <link>http://damien.la/</link>
-    <atom:link href="http://damien.la/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 09 Jan 2022 16:30:59 -0800</pubDate>
-    <lastBuildDate>Sun, 09 Jan 2022 16:30:59 -0800</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 10 Jan 2023 21:13:46 -0800</pubDate>
+    <lastBuildDate>Tue, 10 Jan 2023 21:13:46 -0800</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -335,8 +335,8 @@ slab, slam&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;And for further reading, a &lt;a href=&quot;https://medium.freecodecamp.org/lets-enhance-how-we-found-rogerkver-s-1000-wallet-obfuscated-private-key-8514e74a5433&quot;&gt;much cooler – and more techincal! - story here&lt;/a&gt; where they reconstruct a private key from a partial/blurred QR code and a few other hints.&lt;/p&gt;
 </description>
         <pubDate>Sun, 10 Sep 2017 05:00:00 -0700</pubDate>
-        <link>http://damien.la/2017/09/10/mnemonic</link>
-        <guid isPermaLink="true">http://damien.la/2017/09/10/mnemonic</guid>
+        <link>http://localhost:4000/2017/09/10/mnemonic</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/09/10/mnemonic</guid>
         
         
       </item>
@@ -413,8 +413,8 @@ slab, slam&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;My feature request actually got a few comments!&lt;/p&gt;
 </description>
         <pubDate>Wed, 02 Dec 2015 04:00:00 -0800</pubDate>
-        <link>http://damien.la/2015/12/02/ruby2.3.0</link>
-        <guid isPermaLink="true">http://damien.la/2015/12/02/ruby2.3.0</guid>
+        <link>http://localhost:4000/2015/12/02/ruby2.3.0</link>
+        <guid isPermaLink="true">http://localhost:4000/2015/12/02/ruby2.3.0</guid>
         
         
       </item>
@@ -443,8 +443,8 @@ slab, slam&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 </description>
         <pubDate>Tue, 23 Jun 2015 05:00:00 -0700</pubDate>
-        <link>http://damien.la/2015/06/23/hyperloop</link>
-        <guid isPermaLink="true">http://damien.la/2015/06/23/hyperloop</guid>
+        <link>http://localhost:4000/2015/06/23/hyperloop</link>
+        <guid isPermaLink="true">http://localhost:4000/2015/06/23/hyperloop</guid>
         
         
       </item>
@@ -480,8 +480,8 @@ slab, slam&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </description>
         <pubDate>Sun, 24 May 2015 05:00:00 -0700</pubDate>
-        <link>http://damien.la/2015/05/24/image-binaries-rails-api</link>
-        <guid isPermaLink="true">http://damien.la/2015/05/24/image-binaries-rails-api</guid>
+        <link>http://localhost:4000/2015/05/24/image-binaries-rails-api</link>
+        <guid isPermaLink="true">http://localhost:4000/2015/05/24/image-binaries-rails-api</guid>
         
         
       </item>
@@ -558,8 +558,8 @@ slab, slam&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 19 May 2015 05:00:00 -0700</pubDate>
-        <link>http://damien.la/2015/05/19/metal-flowers</link>
-        <guid isPermaLink="true">http://damien.la/2015/05/19/metal-flowers</guid>
+        <link>http://localhost:4000/2015/05/19/metal-flowers</link>
+        <guid isPermaLink="true">http://localhost:4000/2015/05/19/metal-flowers</guid>
         
         
       </item>
@@ -608,8 +608,8 @@ slab, slam&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;a href=&quot;http://blog.honeybadger.io/advanced-ruby-hash-techniques/&quot;&gt;blog.honeybadger.io/advanced-ruby-hash-techniques&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 17 May 2015 05:00:00 -0700</pubDate>
-        <link>http://damien.la/2015/05/17/autovivification</link>
-        <guid isPermaLink="true">http://damien.la/2015/05/17/autovivification</guid>
+        <link>http://localhost:4000/2015/05/17/autovivification</link>
+        <guid isPermaLink="true">http://localhost:4000/2015/05/17/autovivification</guid>
         
         
       </item>
@@ -703,8 +703,8 @@ APN   protocol IPv4/IPv6&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 </description>
         <pubDate>Tue, 24 Dec 2013 04:00:00 -0800</pubDate>
-        <link>http://damien.la/2013/12/24/modding-nexus</link>
-        <guid isPermaLink="true">http://damien.la/2013/12/24/modding-nexus</guid>
+        <link>http://localhost:4000/2013/12/24/modding-nexus</link>
+        <guid isPermaLink="true">http://localhost:4000/2013/12/24/modding-nexus</guid>
         
         
       </item>
@@ -736,8 +736,8 @@ APN   protocol IPv4/IPv6&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;Don’t let the asymmetry bother you. The one’s place is really the ‘center’, and the decimal that represents values less than 1 is arbitrary.&lt;/p&gt;
 </description>
         <pubDate>Mon, 10 Dec 2007 08:00:00 -0800</pubDate>
-        <link>http://damien.la/2007/12/10/comma-separation</link>
-        <guid isPermaLink="true">http://damien.la/2007/12/10/comma-separation</guid>
+        <link>http://localhost:4000/2007/12/10/comma-separation</link>
+        <guid isPermaLink="true">http://localhost:4000/2007/12/10/comma-separation</guid>
         
         
       </item>

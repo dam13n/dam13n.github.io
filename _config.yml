@@ -19,4 +19,4 @@ paginate: 5
 plugins: [jekyll-paginate]
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
-exclude_pages: [ "Contact", "Publications"]
+exclude_pages: [ "Contact", "Publications", "About", "Ideas", "Projects", "Work"]
